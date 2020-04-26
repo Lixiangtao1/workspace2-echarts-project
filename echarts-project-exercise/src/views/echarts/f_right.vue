@@ -22,6 +22,28 @@ export default {
 					formatter: "{b}: {c} ({d}%)"
 				},
 				series: [
+					// 解决外部圆视觉引导的问题
+					{
+						name: "外圆",
+						type: "pie",
+						label: {
+							formatter: "{d}%"
+						},
+						// hoverAnimation: false, //取消悬停部分放大
+						labelLine: {
+							show: true,
+							lineStyle: {
+								color: "#979797"
+							}
+						},
+						data:[
+							{ value: 18, name: "60分以上" },
+							{ value: 14, name: "70分以上" },
+							{ value: 32, name: "80分以上" },
+							{ value: 36, name: "90分以上" }
+						]
+					},
+
 					{
 						name: "访问来源",
 						type: "pie",
@@ -38,28 +60,32 @@ export default {
 						data: [{ value: 100, name: "总评分" }]
 					},
 					{
+						name: "外圆",
 						type: "pie",
 						radius: ["30%", "65%"], // 大小
 						center: ["50%", "50%"], //位置
 						label: {
-							//外部圆富文本
-							formatter: '{d}%',
-							// position: 'inner'
+							// 外部圆富文本
+							formatter: '{b}',
+							position: 'inner'
 						},
-						labelLine: {
-							show: true, //是否显示视觉引导线
-							lineStyle: {
-								color: "#979797"
-							}
-						},
+						// labelLine: {//视觉引导线
+						// 	show: true, 
+						// 	lineStyle: {
+						// 		color: "#979797"
+						// 	}
+						// },
 						color: ["pink", "blue", "green", "orange"],
 						data: [
 							{ value: 18, name: "60分以上" },
 							{ value: 14, name: "70分以上" },
 							{ value: 32, name: "80分以上" },
 							{ value: 36, name: "90分以上" }
-						]
-					}
+						],
+
+					},
+					
+					
 				]
 			});
 		}

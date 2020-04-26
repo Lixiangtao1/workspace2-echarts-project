@@ -5,16 +5,17 @@
       <span style="display:block;float:left;color:#fff;font-size:14px;line-height:20px;">城市</span>
       <select name="" class="S_l1">
         <option value="1">南京</option>
+        <option value="2">苏州</option>
       </select>
     </div>
-    <!-- <div class="S_r">
-      <span style="display:block;float:left;color:#fff;font-size:14px;line-height:20px;">时间</span>
+    <div class="S_r">
+      <!-- <span style="display:block;float:left;color:#fff;font-size:14px;line-height:20px;padding-left:70px;">时间</span>
       <el-date-picker
-        v-model="value1"
-        type="date"
-        placeholder="选择日期">
-      </el-date-picker>
-    </div> -->
+        v-model="searchDate"
+        type="month"
+        >
+      </el-date-picker> -->
+    </div>
     <div style="width:100%;height:100%;min-height:584px" ref="chart"></div>
   </div>
 </template>
@@ -23,7 +24,7 @@ import echarts from 'echarts'
 export default {
   data() {
     return {
-      
+      searchDate:''
     };
   },
   created() {
@@ -62,7 +63,8 @@ export default {
             center: ["50%", "50%"],  // 饼状图位置配置
             selectedMode: "single", //选中模式
             label: {
-              position: 'inner'
+              position: 'inner',
+              formatter: "{c}天"
             },
             color: ['#99004c','#ff0000','#0ceac0','#ffbd57','#eae00c','#7e0023','#fff'],
             data: [
@@ -106,14 +108,14 @@ export default {
 };
 
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
   .C_content{
     .S_l{
       margin-top: 30px;
       margin-left: 24px;
       .S_l1 {
         float:left;
-        width:88px;
+        width:60px;
         height:26px;
         text-align: center;
         text-align-last: center; 
@@ -124,5 +126,23 @@ export default {
         background-color:#021737;
       }
     }
+    // .S_r {
+    //   .el-date-editor.el-input, .el-date-editor .el-input__inner{
+    //     float: left;
+    //     width: 60px;
+    //     height: 24px;
+    //     margin-left: 8px;
+    //     font-size: 14px;
+    //     text-align: center;
+    //     vertical-align: center;
+    //     // border: 1px solid #01f2ff;
+    //     color:#fff;
+    //     background-color:#021737;
+    //   }
+    //   .el-input__inner {
+    //     background-color: #021737;
+    //     height: 24px;
+    //   }
+    // }
   }
 </style>

@@ -49,11 +49,12 @@ export default {
                 radius: '65%', // 调整饼状图的大小
                 center: ['50%', '45%'],  // 饼状图的位置
                 label: {
-                  position: 'inner'
+                  position: 'inner',
+                  formatter: "{d}%"
                 },
                 data: [
-                    {value: 135, name: '未到达率'},
-                    {value: 1548, name: '到达率'}
+                  {value: 9, name: '未到达率'},
+                  {value: 91, name: '到达率'}
                 ],
                 emphasis: {
                     itemStyle: {
@@ -88,7 +89,8 @@ export default {
               radius: '65%',
               center: ['50%', '45%'],  //饼状图的位置
               label: {
-                position: 'inner'
+                position: 'inner',
+                formatter: "{d}%"
               },
               data: [
                   {value: 20, name: '未到达率'},

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Show Time</title>
+</head>
+ 
+<body οnlοad="showTime()">
+ 
+   <script type="text/javascript">
+   	//javascript实现页面无刷新让时间走动
+    function showTime()
+    { 
+		var date = new Date();  //获取时间对象
+		var year = date.getFullYear(); //获取年
+		var month = date.getMonth()+1;//获取月份。获取的月份比真实的月份少一个月。所以这里得+1 
+		var day = date.getDate();  //获取日
+		var week = date.getDay();//返回0--6。当中0表示星期天，1--6代表星期一到星期六
+		var weekStr="未知"; 
+		var hours = date.getHours(); //获取时（24小时制）
+		var minutes = date.getMinutes();  //获取分
+        var seconds = date.getSeconds();  //获取秒
+		var milliseconds = date.getMilliseconds();//获得毫秒 
+		                   
+		//处理星期的显示			
+		switch(week){
+				case 1:
+					weekStr="一 "
+				break;
+				case 2:
+					weekStr="二 "
+				break;
+				case 3:
+					weekStr="三 "
+				break;
+				case 4:
+					weekStr="四 "
+				break;
+				case 5:
+					weekStr="五 "
+				break;
+				case 6:
+					weekStr="六 "
+				break;
+				default:
+				  weekStr="日 ";
+			}			
+						
+						
+		document.getElementById("timeMsg").innerHTML = 
+        year + "年" + month + "月" + day + "日 "+"  星期"+weekStr+hours + ":" + minutes + ":" + seconds + ":" + milliseconds; 
+    }
+      //setInterval动作的作用是每隔一定时间就调用函数，方法或对象
+	 setInterval("showTime()", 1);//设置每隔1豪秒调用一下上面的方法
+    
+    </script>
+    
+    <div id="timeMsg" style="font-size: 36px;color:#00C"></div>
+    
+</html>

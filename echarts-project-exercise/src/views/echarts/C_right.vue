@@ -151,7 +151,7 @@ export default {
         },
         yAxis: {
           type: "value",
-          name: "AQI",
+          name: "AQI", 
           max: 100,
           splitNumber: 5,
           axisLabel: {
@@ -167,7 +167,7 @@ export default {
             },
           },
           splitLine: {
-            // 刻度线的样式
+            // 刻度线
             lineStyle: {
               type: "dashed",
               color: "#979797"

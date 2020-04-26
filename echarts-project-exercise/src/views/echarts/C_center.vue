@@ -9,7 +9,7 @@ import echarts from "echarts";
 import "echarts/map/js/province/jiangsu";
 import $ from "jquery";
 // import jiangsuJson from "./jiangsu.json";
-import jiangsuJson2 from "./jiangsu2.json"
+import jiangsuJson2 from "./jiangsu2.json";
 export default {
   data() {
     return {};
@@ -26,24 +26,41 @@ export default {
       echarts.registerMap("jiangsu", jiangsuJson2);
       myChart.setOption({
         tooltip: {
-          // show: true, 默认为true
+          show: true,
           trigger: "item",
-          formatter: "{b}<br/> {c}",
-          // formatter: "{c}"
+          formatter: "{b}<br/>{c}"
+          // formatter: function(params) {
+            // debugger
+            // console.log(params);  //params.value
+            // return params.name;
+            // let result = '';
+            // result = params.name;
+            // result += "<br/>" + params.dataIndex; 
+            // return result;
+          // }
         },
-        visualMap: { //地图的图例配置 
+        visualMap: {
+          //地图的图例配置
           left: 20,
           min: 0,
           max: 100,
-          text: ['AQI'],
+          text: ["AQI"],
           textStyle: {
-            fontSize: '16px',
-            color: '#fff'
+            fontSize: "16px",
+            color: "#fff"
           },
           realtime: false,
           calculable: true,
-          inRange: { //设置图例颜色进度
-            color: ['#7e0023', '#99004c', '#ff0000', '#ff7e00', '#ffff01', '#00f900']
+          inRange: {
+            //设置图例颜色进度
+            color: [
+              "#7e0023",
+              "#99004c",
+              "#ff0000",
+              "#ff7e00",
+              "#ffff01",
+              "#00f900"
+            ]
           }
         },
         series: [
@@ -52,24 +69,31 @@ export default {
             type: "map",
             mapType: "jiangsu",
             itemStyle: {
-              normal: { label: { show: true } },
+              normal: {
+                label: {
+                  show: true,
+                }
+                // areaStyle: {
+                //   color: "green"
+                // }
+              },
               emphasis: { label: { show: true } }
             },
             data: [
-              { name: "南京", value: '45' },
-              { name: "苏州", value: '45' },
-              { name: "无锡", value: '45'},
-              { name: "常州", value: '45' },
-              { name: "镇江", value: '45' },
-              { name: "徐州", value: '45' },
-              { name: "连云港", value: '45'},
-              { name: "宿迁", value: '45' },
-              { name: "淮安", value: '45' },
-              { name: "盐城", value: '45' },
-              { name: "南通", value: '45' },
-              { name: "扬州", value: '45' },
-              { name: "泰州", value: '45' }
-            ],
+              { name: "南京市", value: 85 },
+              { name: "苏州市", value: 55 },
+              { name: "无锡市", value: 12 },
+              { name: "常州市", value: 65 },
+              { name: "镇江市", value: 35 },
+              { name: "徐州市", value: 45 },
+              { name: "连云港市", value: 79 },
+              { name: "宿迁市", value: 14 },
+              { name: "淮安市", value: 56 },
+              { name: "盐城市", value: 75 },
+              { name: "南通市", value: 33 },
+              { name: "扬州市", value: 66 },
+              { name: "泰州市", value: 58 }
+            ]
           }
         ]
       });

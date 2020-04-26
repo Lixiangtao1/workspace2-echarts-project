@@ -4,7 +4,7 @@
       <div class="L_top">
         <div class="logo">
           <img src="./../../assets/img/江苏省气象台logo.png" alt="">
-          <div class="logo_title" style="">江苏省气象台</div>
+          <div class="logo_title">江苏省气象台</div>
         </div>
       </div>
       <div class="L_center">
@@ -60,6 +60,12 @@ export default {
     return {
       currentDate: moment(new Date()).format("YYYY/MM/DD hh:mm:ss")
     };
+  },
+  methods:{
+    // currentDate() {
+    //   let time = moment(new Date()).format("YYYY/MM/DD hh:mm:ss")
+    //   setInterval(time)
+    // }
   }
 };
 </script>
@@ -68,6 +74,7 @@ export default {
   background-color: #021737; 
   width: 100%;
   height: 100%;
+  min-width: 1000px; //设置最小宽度为1000px;
   overflow: hidden; //溢出
   .box_l {
     // width: calc(100% - 50px);
@@ -76,6 +83,7 @@ export default {
     float: left;
     .L_top {
       height: 92px;
+      // min-height: 92px;
       .logo{
         margin-left: 104px;
         margin-top: 22px;
@@ -86,12 +94,14 @@ export default {
       .logo_title{
         width:172px;
         height:42px;
+        max-width: 172px;
+        max-height: 42px;
         float:left;
         margin-top:-52px;
         margin-left: 60px;
         line-height:42px;
         font-size:24px;
-        color:#fff
+        color:#fff;
       }
     }
     .L_center {
@@ -151,15 +161,14 @@ export default {
     float: left;
     .R_top {
       height: 92px;
-      
+      width: 100%;
       .time {
-        width: 296px;
+        width: 100%;
         height: 36px;
         margin-left: 40px;
         color:#fff;
-        font-size: 30px;
+        font-size: 20px;
         line-height: 92px;
-        
       }
     }
     .R_center {
