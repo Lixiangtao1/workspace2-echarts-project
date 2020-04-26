@@ -75,6 +75,7 @@ export default {
   width: 100%;
   height: 100%;
   min-width: 1000px; //设置最小宽度为1000px;
+  min-height: 600px;
   overflow: hidden; //溢出
   .box_l {
     // width: calc(100% - 50px);
