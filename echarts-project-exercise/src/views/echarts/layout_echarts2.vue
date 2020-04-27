@@ -58,14 +58,28 @@ export default {
   },
   data() {
     return {
-      currentDate: moment(new Date()).format("YYYY/MM/DD hh:mm:ss")
+      // currentDate: moment(new Date()).format("YYYY/MM/DD hh:mm:ss")
+      currentDate: ''
     };
   },
+  mounted() {
+    // 实现时间更新
+    this.showTime();
+	  setInterval(this.showTime,1000)
+  },
   methods:{
-    // currentDate() {
-    //   let time = moment(new Date()).format("YYYY/MM/DD hh:mm:ss")
-    //   setInterval(time)
-    // }
+    showTime() {
+      let date = new Date(); 
+		  let year = date.getFullYear(); 
+		  let month = date.getMonth()+1;
+		  let day = date.getDate();  
+		  let hours = date.getHours(); //24小时制
+		  let minutes = date.getMinutes();  
+      let seconds = date.getSeconds();              			
+      this.currentDate = year + "/" + month + "/" + day + "/ "+hours + ":" + minutes + ":" + seconds;
+      // console.log(this.currentDate)
+      return this.currentDate
+    }
   }
 };
 </script>
@@ -75,7 +89,7 @@ export default {
   width: 100%;
   height: 100%;
   min-width: 1000px; //设置最小宽度为1000px;
-  min-height: 600px;
+  min-height: 1100px;
   overflow: hidden; //溢出
   .box_l {
     // width: calc(100% - 50px);
@@ -85,24 +99,28 @@ export default {
     .L_top {
       height: 92px;
       // min-height: 92px;
+      position: relative;
       .logo{
-        margin-left: 104px;
-        margin-top: 22px;
+        position:absolute;
+        left:25%;
+        top: 25%;
+        // margin-left: 70px;
+        // margin-top: 22px;
         width: 50px;
         height: 50px;
         float:left;
-      }
-      .logo_title{
-        width:172px;
-        height:42px;
-        max-width: 172px;
-        max-height: 42px;
-        float:left;
-        margin-top:-52px;
-        margin-left: 60px;
-        line-height:42px;
-        font-size:24px;
-        color:#fff;
+        .logo_title{
+          width:172px;
+          height:42px;
+          max-width: 172px;
+          max-height: 42px;
+          float:left;
+          margin-top:-52px;
+          margin-left: 60px;
+          line-height:42px;
+          font-size:24px;
+          color:#fff;
+        }
       }
     }
     .L_center {
@@ -153,7 +171,6 @@ export default {
       box-shadow: inset 0 0 16px 1px rgba(55, 171, 151, 0.8);
     }
   }
-
 
   .box_r {
     // width: calc(25%+32px);

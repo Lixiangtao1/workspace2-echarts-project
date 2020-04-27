@@ -97,6 +97,10 @@ export default {
           }
         ]
       });
+      // window.onresize  = myChart.resize;
+      window.addEventListener("resize",function () {
+				myChart.resize()
+			})
     }
   }
 };

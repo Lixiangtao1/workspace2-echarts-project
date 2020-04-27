@@ -123,6 +123,10 @@ export default {
           }
         ]
       });
+      // window.onresize  = myEcharts.resize; 
+      window.addEventListener("resize",function () {
+				myEcharts.resize()
+			})
     }
   }
 };

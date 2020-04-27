@@ -4,6 +4,10 @@
     <div
       style="padding-top:9px;font-size:16px;line-height:22px;text-align:center;color:#fff"
     >AQI城市污染排名</div>
+    <select name="city" class="S_l1">
+      <option value="1">AQI</option>
+      <option value="2">苏州</option>
+    </select>
     <!-- <div style="width:100%;height:100%;min-height:340px" ref="f_left"></div> -->
     <div class="H_z">
       <!-- 1 -->
@@ -155,8 +159,26 @@ export default {
 //     margin-left: 20px;
 //   }
 // }
+.C_content{
+  position: relative;
+}
+  .S_l1 {
+    position: absolute;
+    top: 6%;
+    left: 75%;
+    float: left;
+    width: 60px;
+    height: 26px;
+    text-align: center;
+    text-align-last: center;
+    line-height: 24px;
+    // margin-left: 8px;
+    border: 1px solid #01f2ff;
+    color: #01f2ff;
+    background-color: #021737;
+  }
 .H_z1 {
-  width: 220px;
+  width: 65%;
   height: 10px;
   margin-top: 20px;
   margin-left: 40px;

@@ -17,9 +17,13 @@
 import echarts from "echarts";
 export default {
   data() {
-    return {};
+    return {
+
+    };
   },
-  created() {},
+  created() {
+
+  },
   mounted() {
     this.initEcharts1();
     this.initEcharts2();
@@ -113,19 +117,38 @@ export default {
             name: "中央",
             type: "bar",
             barWidth: 15,
-            // label: labelOption,
+            itemStyle: {
+              color: new echarts.graphic.LinearGradient(
+                0, 0, 0, 1,
+                [
+                  {offset: 0, color: '#00f3ff'},
+                  {offset: 1, color: '#1f5ff0'}
+                ]
+              )
+            },
             data: [58, 57, 78, 38, 64]
           },
           {
             name: "华东",
             type: "bar",
             barWidth: 15,
-            // label: labelOption,
+            itemStyle: {
+              color: new echarts.graphic.LinearGradient(
+                0, 0, 0, 1,
+                [
+                  {offset: 0, color: '#da5e4c'},
+                  {offset: 1, color: '#dfa55a'}
+                ]
+              )
+            },
             data: [48, 70, 58, 45, 82]
           }
         ]
       });
+      window.onresize  = myEcharts.resize;
     },
+
+    // 折线图
     initEcharts2() {
       let myEcharts2 = echarts.init(this.$refs.chartBar2);
       myEcharts2.setOption({
@@ -179,18 +202,17 @@ export default {
             data: [20, 38, 20, 42, 35, 57, 40, 39, 40, 20, 40],
             type: "line",
             name: "实况",
-            areaStyle: {},
+            areaStyle: {
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                { offset: 1, color: "#021737" },
+                { offset: 0, color: "#01f2ff" }
+                ]),
+              }
+            },
             itemStyle: {
 				      normal: {
                 color: '#8cd5c2', //改变折线点的颜色
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1,[{
-                          offset: 0, color: '#01f2ff' // 0% 处的颜色
-                        }, {
-                          offset: 0.5, color: '#01f2ff' // 100% 处的颜色
-                        }, {
-                          offset: 1, color: '#01f2ff' // 100% 处的颜色
-                        }]
-                ), 
 				      	lineStyle: {
 				      		color: '#01f2ff' //改变折线颜色
 				      	}
@@ -199,6 +221,7 @@ export default {
           }
         ]
       });
+      window.onresize = myEcharts2.resize;
     }
   }
 };

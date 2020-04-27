@@ -50,7 +50,7 @@ export default {
 						selectedMode: "single",
 						radius: [0, "30%"],
 						label: {
-							position: "inner",
+							position: "center",
 							textStyle: {
 								//设置内圆字体样式
 								color: "#fff"
@@ -82,12 +82,12 @@ export default {
 							{ value: 32, name: "80分以上" },
 							{ value: 36, name: "90分以上" }
 						],
-
 					},
-					
-					
 				]
 			});
+			window.addEventListener("resize",function () {
+				myEcharts.resize()
+			})
 		}
 	}
 };

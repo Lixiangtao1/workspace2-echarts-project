@@ -2,7 +2,7 @@
   <div class="C_content">
     <div style="color:#01f2ff;font-size: 20px;padding-top:17px;padding-left:16px;">数据到达率</div>
     <div class="zhoubao">
-      <!-- <div style="float:left;width:44px;height:180px;background-color:#1e335e;border:1px solid #505b6c;margin-top:73px;margin-left:106px;">
+      <!-- <div class="zhoubao_1">
         <span style="display:block;font-size:20px;line-height:27px;margin:63px 12px;color:#fff;">周报</span>
       </div> -->
       <div style="width:100%;height:100%;min-height:342px" ref="f_center"></div>
@@ -25,6 +25,7 @@ export default {
   mounted() {
     this.initEcharts();
     this.initEcharts2();
+    
   },
   methods: {
     initEcharts() {
@@ -66,6 +67,9 @@ export default {
             }
         ]
       })
+      window.addEventListener("resize",function () {
+				myEcharts.resize()
+			})
     },
     initEcharts2() {
       let myEcharts = echarts.init(this.$refs.f_center2);
@@ -106,6 +110,10 @@ export default {
             }
         ]
       })
+      // 解决图片缩小问题
+      window.addEventListener("resize",function () {
+				myEcharts.resize()
+			})
     }
   }
 };
@@ -117,6 +125,15 @@ export default {
     float: left;
     width: 50%;
     margin-top: -42px;
+    .zhoubao_1{
+      float:left;
+      width:44px;
+      height:180px;
+      background-color:#1e335e;
+      border:1px solid #505b6c;
+      margin-top:73px;
+      margin-left:106px;
+    }
   }
   .baowen{
     float: left;
